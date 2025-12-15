@@ -45,19 +45,13 @@
 
 
 /* Responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   body {
-    padding: 0 10px;
+    padding: 0;
   }
 
-  .container,
-  section,
-  header,
-  footer {
-    width: 100% !important;
-    padding: 0 !important;
-  }
-
+  /* Fix for images */
   img {
     max-width: 100%;
     height: auto;
@@ -292,82 +286,55 @@ footer {
 /* ...existing code... */
 
 /* BOTÓN DEL MENÚ (solo en celulares) */
+/* MENU TOGGLE & MOBILE NAV */
 .menu-toggle {
   display: none;
-  background: #0b5fff;
-  color: white;
+  background: transparent;
+  color: #1e3a8a;
+  /* blue-900 */
   border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  transition: 0.3s ease;
+  z-index: 60;
 }
 
-.menu-toggle:hover {
-  background: #0053c7;
-}
-
-/* En móviles, ocultar menú y mostrar botón */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   nav#menu {
-    display: none !important;
+    display: none;
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
-    right: 0;
+    width: 100%;
     background: white;
     flex-direction: column;
-    padding: 15px;
-    gap: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    align-items: center;
+    /* Center items */
+    padding: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #f3f4f6;
   }
 
+  /* Force display flex when active class is added by JS */
   nav#menu.active {
     display: flex !important;
   }
 
   nav#menu a {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-  }
-}
-
-.menu-toggle {
-  z-index: 600 !important;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block !important;
-  }
-
-  nav#menu {
-    z-index: 550;
-    display: none !important;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
+    width: 100%;
+    text-align: center;
     padding: 12px;
-    gap: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #f3f4f6;
   }
 
-  nav#menu.active {
-    display: flex !important;
-  }
-
-  nav#menu a {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
+  nav#menu .dropdown {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
   }
 }
 
